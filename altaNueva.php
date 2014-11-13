@@ -26,12 +26,12 @@
 	   Conectar();
 	   
 
-$clausula = "SELECT id-usuario FROM usuario WHERE 1 ORDER BY id DESC LIMIT 1";
+$clausula = "SELECT id FROM usuario WHERE 1 ORDER BY id DESC LIMIT 1";
 $result=mysql_fetch_array(mysql_query($clausula));
 $id = $result[0];
 $id++;
 
-echo $id;	  
+echo $id;
 	  ?></span></td>
     </tr>
     <tr>
