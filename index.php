@@ -21,11 +21,11 @@ if(isset($_GET['login']))
 }
 
 if (isset($contenido)){
-if( $contenido!= "altaNueva"){
-if(!isset($logueado) && isset($login) ){
-header("Location:index.php?login");
-}
-}
+    if( $contenido!= "altaNueva"){
+        if(!isset($logueado) && isset($login) ){
+            header("Location:index.php?login");
+        }
+    }
 }
 ?>
 
