@@ -19,10 +19,16 @@ if($logueado!=1) header("Location:index.php?login");
 <br>
 <table width="43%"  border="0" align="center" cellspacing="0">
   <tr>
-    <td width="41%"><span class="style14">L&iacute;bros:</span></td>
+      <br>
+    <td width="41%"><span class="style14">L&iacute;brossss:<br></span></td>
+      <br>
     <td width="59%"><span class="style15"></span></td>
   </tr>
+    <br>
+
+
   <tr>
+      <br>
     <td><span class="style14">- Total: </span></td>
     <td>
 	
@@ -37,7 +43,7 @@ if($logueado!=1) header("Location:index.php?login");
   <tr>
     <td><span class="style14">- Vistas: </span></td>
     <td><?php 
-	$clausula="SELECT COUNT(*) FROM historial WHERE idSocio='$idSocio'";
+	$clausula="SELECT COUNT(*) FROM  WHERE idSocio='$idSocio'";
 	$result=mysql_fetch_array(mysql_query($clausula));
 		$vistas = $result[0];
 	$clausula="SELECT COUNT(*) FROM alquileres WHERE idSocio='$idSocio'";
