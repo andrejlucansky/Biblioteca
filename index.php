@@ -5,9 +5,9 @@ if(isset($_SESSION['logueado']))
     $logueado =  $_SESSION['logueado'];
 }
 
-if(isset($_SESSION['idSocio']))
+if(isset($_SESSION['id']))
 {
-    $idSocio = $_SESSION['idSocio'];
+    $id = $_SESSION['id'];
 }
 
 if(isset($_GET['contenido']))
