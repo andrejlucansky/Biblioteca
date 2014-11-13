@@ -19,7 +19,7 @@ if($logueado!=1) header("Location:index.php?login");
 <br>
 <table width="43%"  border="0" align="center" cellspacing="0">
   <tr>
-    <td width="41%"><span class="style14">Pel&iacute;culas:</span></td>
+    <td width="41%"><span class="style14">L&iacute;bros:</span></td>
     <td width="59%"><span class="style15"></span></td>
   </tr>
   <tr>
