@@ -31,7 +31,7 @@ $result=mysql_fetch_array(mysql_query($clausula));
 $id = $result[0];
 $id++;
 
-echo $id;	  
+echo $id;
 	  ?></span></td>
     </tr>
     <tr>
