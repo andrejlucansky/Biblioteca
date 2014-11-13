@@ -1,4 +1,12 @@
-<?php
+<?php 
+session_start();
+if(isset($_SESSION['logueado']))
+{
+    $logueado =  $_SESSION['logueado'];
+}
+
+if(isset($_SESSION['idSocio']))
+{
     $idSocio = $_SESSION['idSocio'];
 }
 
@@ -14,14 +22,6 @@ if(isset($_GET['login']))
 
 if (isset($contenido)){
 if( $contenido!= "altaNueva"){
-    session_start();
-    if(isset($_SESSION['logueado']))
-    {
-        $logueado =  $_SESSION['logueado'];
-    }
-
-    if(isset($_SESSION['idSocio']))
-    {
 if(!isset($logueado) && isset($login) ){
 header("Location:index.php?login");
 }
@@ -67,7 +67,7 @@ a:hover { font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; f
 <br>
 <table width="80%" height="473" border="1" align="center" cellspacing="0" bordercolor="#000000">
   <tr>
-    <td width="1093" height="99" bgcolor="#FFFFFF"><div align="center" class="style1">Biblioteca Virtual pipe</div></td>
+    <td width="1093" height="99" bgcolor="#FFFFFF"><div align="center" class="style1">Biblioteca Virtual</div></td>
   </tr>
   <tr>
     <td height="92" bgcolor="#0066CC"><?php  if(isset($logueado)){if($logueado==1) {include "menu.php";}}?></td>
