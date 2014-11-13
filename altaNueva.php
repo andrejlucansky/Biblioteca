@@ -26,7 +26,7 @@
 	   Conectar();
 	   
 
-$clausula = "SELECT idSocio FROM socios WHERE 1 ORDER BY idSocio DESC LIMIT 1";
+$clausula = "SELECT id-usuario FROM usuario WHERE 1 ORDER BY id DESC LIMIT 1";
 $result=mysql_fetch_array(mysql_query($clausula));
 $id = $result[0];
 $id++;
@@ -55,7 +55,7 @@ echo $id;
       <td><input type="text" name="direccion" id="direccion" /></td>
     </tr>
     <tr>
-      <td><span class="style8">Número de teléfono:</span></td>
+      <td><span class="style8">Nï¿½mero de telï¿½fono:</span></td>
       <td><input type="text" name="telefono" id="telefono" /></td>
     </tr>
   </table>
