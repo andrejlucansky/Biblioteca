@@ -1,15 +1,16 @@
 <?php
 include "vars.php";
 $nombre= $_POST['nombre'];
-$direccion = $_POST['direccion'];
-$telefono = $_POST['telefono'];
+$apellidos = $_POST['appelidos'];
+$email = $_POST['email'];
 $password = $_POST['password'];
+$apodo = $_POST['apodo'];
 
 //echo "EEE: " . $nombre . " " . $direccion . " " . $telefono . " " .$password ;
 Conectar();
 
 
-$clausula = "INSERT INTO socios ( nombre, direccion, telefono, numAlquiladas, password) VALUES ('$nombre',  '$direccion', $telefono,0, '$password')";
+$clausula = "INSERT INTO usuario (nombre, apellidos, email, tipo, password, apodo) VALUES ('$nombre',  '$apellidos', '$email', 'user', '$password', '$apodo')";
 $result=mysql_query($clausula) or die("Error en la conexion a la base de datos: socios");
 
 

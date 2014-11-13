@@ -19,7 +19,7 @@
 <form name="form1" method="post" action="login.php">
   <table width="31%"  border="0" align="center" cellspacing="0">
     <tr>
-      <td width="51%"><div align="right" class="style3">Identificaci&oacute;n:</div></td>
+      <td width="51%"><div align="right" class="style3">Apodo:</div></td>
       <td width="49%"><input name="identificacion" type="text" id="identificacion"></td>
     </tr>
     <tr>
@@ -37,7 +37,7 @@
   <div align="center"><a href="index.php?contenido=altaNueva" style="color:#CC0000">Alta nuevo usuario</a><br>
   <!-- STEP 2 As we are not logged yet we have to select Alta nuevo which leads to index.php?contenido=altaNueva -->
   </div>
-  <div align="center" style="color:#CC0000; font-weight:bold; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:x-small "><?php if (isset($login)) echo "Por favor identifíquese para acceder a la aplicación";?></div>
+  <div align="center" style="color:#CC0000; font-weight:bold; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:x-small "><?php if (isset($login)) echo "Por favor identifï¿½quese para acceder a la aplicaciï¿½n";?></div>
 </form>
 </body>
 </html>

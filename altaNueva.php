@@ -35,12 +35,6 @@ echo $id;
 	  ?></span></td>
     </tr>
     <tr>
-      <td><span class="style8">Contrase&ntilde;a:</span></td>
-      <td><label>
-        <input name="password" type="password" id="password" value="" />
-      </label></td>
-    </tr>
-    <tr>
       <td>&nbsp;</td>
       <td><label></label></td>
     </tr>
@@ -51,13 +45,26 @@ echo $id;
       </label></td>
     </tr>
     <tr>
-      <td><span class="style8">Direccion:</span></td>
-      <td><input type="text" name="direccion" id="direccion" /></td>
+      <td><span class="style8">Apellidos:</span></td>
+      <td><input type="text" name="apellidos" id="apellidos" /></td>
     </tr>
+      <tr>
+          <td><span class="style8">Apodo:</span></td>
+          <td><label>
+                  <input name="apodo" type="text" id="apodo" value="" />
+              </label></td>
+      </tr>
     <tr>
-      <td><span class="style8">N�mero de tel�fono:</span></td>
-      <td><input type="text" name="telefono" id="telefono" /></td>
+      <td><span class="style8">Email:</span></td>
+      <td><input type="text" name="email" id="email" /></td>
     </tr>
+      <tr>
+          <td><span class="style8">Contrase&ntilde;a:</span></td>
+          <td><label>
+                  <input name="password" type="password" id="password" value="" />
+              </label></td>
+      </tr>
+
   </table>
   <div align="right"><br />  
     <br />  
