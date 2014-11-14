@@ -10,11 +10,11 @@ if($logueado!=1) header("Location:index.php?login");
         if($_SESSION['tipo_usuario'] == 'admin') {
             ?>
             <tr valign="top">
-                <td width="29%"><p class="style2">Pel&iacute;culas:<br>
+                <td width="29%"><p class="style2">L&iacute;bros:<br>
                         - <a href="index.php?contenido=listado&crit=todas">Todas</a><br>
-                        - <a href="index.php?contenido=listado&crit=vistas">Ya vistas</a><br>
+                        - <a href="index.php?contenido=listado&crit=vistas">Historial de pedidios</a><br>
                         - <a href="index.php?contenido=listado&crit=novistas">Por ver</a><br>
-                        - <a href="index.php?contenido=listado&crit=disponibles">Disponibles</a></p>
+                        - <a href="index.php?contenido=listado&crit=disponibles">Libros Disponibles</a></p>
                 </td>
                 <td width="49%"><p class="style2">Datos del usuario:<br>
                         - <a href="index.php?contenido=principal">P&aacute;gina principal</a><br>
