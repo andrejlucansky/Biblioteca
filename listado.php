@@ -14,16 +14,16 @@ if($logueado!=1) header("Location:index.php?login");
 
 <body>
 <?php if($crit == 'todas'){
-		$cabecera="Listado de todas las películas";
+		$cabecera="Listado de todas las pelï¿½culas";
 	} else if($crit == 'vistas'){
-		$cabecera="Listado de las películas ya vistas";
+		$cabecera="Listado de las pelï¿½culas ya vistas";
 	} else if($crit == 'novistas'){
-		$cabecera="Listado de las películas que no ha visto";
+		$cabecera="Listado de las pelï¿½culas que no ha visto";
 	} else if($crit ==  'disponibles'){
-		$cabecera="Listado de las películas disponibles para alquilar";
+		$cabecera="Listado de las pelï¿½culas disponibles para alquilar";
 	}
 ?>
-<div align='center'  style="font-weight:bold "><?php echo $cabecera;?><br></div><div align='center'  style="font-size:x-small;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif ">(click en la pel&iacute;cula para ver la ficha y alquilarla si lo desea y está disponible)</div><br>
+<div align='center'  style="font-weight:bold "><?php echo $cabecera;?><br></div><div align='center'  style="font-size:x-small;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif ">(click en la pel&iacute;cula para ver la ficha y alquilarla si lo desea y estï¿½ disponible)</div><br>
 <br>
 
 <table width="85%"  border="0" align="center" cellpadding="0" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:x-small ">
@@ -37,37 +37,47 @@ if($logueado!=1) header("Location:index.php?login");
 
 <?php
 	include "vars.php";
-	Conectar();
-	
-	if($crit == 'todas'){
-		$clausula="SELECT * FROM peliculas WHERE 1 ORDER BY titulo ASC";
-	} else if($crit == 'vistas'){
-		$clausula="SELECT * FROM peliculas WHERE idPelicula IN (SELECT idPelicula FROM historial WHERE idSocio ='$idSocio') ORDER BY titulo ASC";
-	} else if($crit == 'novistas'){
-		$clausula="SELECT * FROM peliculas WHERE idPelicula NOT IN (SELECT idPelicula FROM historial WHERE idSocio = '$idSocio' )ORDER BY titulo ASC";
-	} else if($crit ==  'disponibles'){
-		$clausula="SELECT * FROM peliculas WHERE alquilada=0 ORDER BY titulo ASC";
-	}
-	
-	$result=mysql_query($clausula);
-		while ($row=mysql_fetch_array($result)) {
-		echo "<tr name=$row[idPelicula] onClick=\"window.location='index.php?contenido=ficha&id=$row[idPelicula]'\" onMouseOver=\"bgColor='#0066CC'; this.style.color='#FFFFFF'\" onMouseOut=\"bgColor='#FFFFFF'; this.style.color='#000000'\">
-    <td>$row[titulo]</td>
-    <td>$row[genero]</td>
-    <td>$row[director]</td>
-    <td>$row[formato]</td>
-    <td>" ;
-	
-	if($row[alquilada]==0)
-	echo "No";
-	else 
-	echo "Sí";
-	
-	echo "</td>
-  </tr>
-";}?>
-		
-		</table>
+    Conectar();
+?>
 
-</body>
+<html>
+
+<?php
+$consulta = "SELECT *, usuario.nombre as nombre_usuario FROM prestamo
+inner join usuario on prestamo.USUARIO_id = usuario.id
+inner join libro on prestamo.LIBRO_id = libro.id
+WHERE 1";
+
+$qr = mysql_query($consulta);
+$num = mysql_num_rows($qr);
+
+
+?>
+<table width="85%"  border="0" align="center" cellpadding="0" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:x-small ">
+    <tr>
+        <td ><strong>Nombre</strong></td>
+        <td><strong>Genero</strong></td>
+        <td><strong>Director</strong></td>
+        <td><strong>Formato</strong></td>
+        <td><strong>Alquilada</strong></td>
+    </tr>
+    <?php
+    for($x=0;$x<$num;$x++) {
+        $fila = mysql_fetch_array($qr);
+
+        ?>
+        <tr>
+
+            <td><strong><?php echo $fila['nombre_usuario'];?></strong></td>
+            <td><strong>Genero</strong></td>
+            <td><strong>Director</strong></td>
+            <td><strong>Formato</strong></td>
+            <td><strong>Alquilada</strong></td>
+        </tr>
+    <?php
+    }
+    ?>
+    </table>
+
+
 </html>
