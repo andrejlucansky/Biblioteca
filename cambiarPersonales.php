@@ -1,35 +1,61 @@
 <?php session_start();
 $logueado = $_SESSION['logueado'];
-$idSocio = $_SESSION['idSocio'];
+$idSocio = $_SESSION['id'];
 if($logueado!=1) header("Location:index.php?login");
 ?>
 <body>
-<div align='center'  style="font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif ">Pel�culas alquiladas<br>
-</div> <div align='center'  style="font-size:x-small;font-weight:bold;font-family:Verdana, Arial, Helvetica, sans-serif ">(click en la pel&iacute;cula para devolverla)</div>
-<br>
-<br>
+<form id="form1" name="form1" method="post" action="procesarUsuario.php">
+    <br />
+    <br />
+    <table width="70%" border="0" align="center" cellspacing="0">
+        <tr>
+            <td><span class="style8">Id Usuario:</span></td>
+            <td><span class="style9">
 
-<table width="85%"  border="0" align="center" cellpadding="0" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:x-small ">
-    <tr>
-        <td ><strong>Pelicula</strong></td>
-        <td><strong>Socio</strong></td>
-        <td><strong>Fecha</strong></td>
-    </tr>
+      <?php
+      include "vars.php";
+      Conectar();
 
-    <?php
-    include "vars.php";
-    Conectar();
-    $clausula="SELECT * FROM alquileres WHERE idSocio = $idSocio ORDER BY idPelicula ASC";
-    $result=mysql_query($clausula);
-    while ($row=mysql_fetch_array($result)) {
-        echo "<tr name=$row[idPelicula] onClick=\"window.location='index.php?contenido=devolverPelicula&id=$row[idPelicula]'\" onMouseOver=\"bgColor='#0066CC'; this.style.color='#FFFFFF'\" onMouseOut=\"bgColor='#FFFFFF'; this.style.color='#000000'\">
-    <td>$row[idPelicula]</td>
-    <td>$row[idSocio]</td>
-    <td>$row[fechaAlquiler]</td>
-  </tr>
-";}?>
 
-</table>
+      $clausula = "SELECT id FROM usuario WHERE 1 ORDER BY id DESC LIMIT 1";
+      $result=mysql_fetch_array(mysql_query($clausula));
+      $id = $result[0];
 
+      echo $id;
+      ?></span></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><label></label></td>
+        </tr>
+        <tr>
+            <td><span class="style8">Nombre:</span></td>
+            <td><label>
+                    <input type="text" name="nombre" id="nombre" />
+                </label></td>
+        </tr>
+        <tr>
+            <td><span class="style8">Apellidos:</span></td>
+            <td><input type="text" name="apellidos" id="apellidos" /></td>
+        </tr>
+        <tr>
+            <td><span class="style8">Email:</span></td>
+            <td><input type="text" name="email" id="email" /></td>
+        </tr>
+        <tr>
+            <td><span class="style8">Contrase&ntilde;a:</span></td>
+            <td><label>
+                    <input name="password" type="password" id="password" value="" />
+                </label></td>
+        </tr>
+
+    </table>
+    <div align="right"><br />
+        <br />
+        <input type="submit" name="Submit" id="Submit" value="Actualizar" />
+        <!-- STEP 5 let's process the add user choice -->
+    </div>
+</form>
+<br />
 </body>
 </html>
