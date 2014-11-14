@@ -11,7 +11,7 @@
 			session_start();
 			$_SESSION['logueado'] = 1;
 			$_SESSION['id'] = $row[id];
-            //$_SESSION['tipo_usuario'] = $row['tipo'];
+            $_SESSION['tipo_usuario'] = $row['tipo'];
 			//setcookie("videoclubNTI", $row[idSocio], time()+36000,"/","");
 			header("Location:index.php?contenido=principal");
 

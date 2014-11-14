@@ -48,7 +48,7 @@ if($logueado!=1) header("Location:index.php?login");
     } else if($crit == 'novistas'){
         $clausula="SELECT * FROM libro WHERE id NOT IN (SELECT id FROM historial WHERE idSocio = '$idSocio' )ORDER BY titulo ASC";
     } else if($crit ==  'disponibles'){
-        $clausula="SELECT * FROM libro WHERE alquilada=0 ORDER BY nombre ASC";
+        $clausula="SELECT * FROM libro WHERE hasta is not null ORDER BY nombre ASC";
     }
 
     $result=mysql_query($clausula);
