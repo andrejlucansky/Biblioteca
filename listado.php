@@ -48,7 +48,7 @@ if($logueado!=1) header("Location:index.php?login");
     } else if($crit == 'novistas'){
         $clausula="SELECT * FROM libro WHERE id NOT IN (SELECT id FROM historial WHERE idSocio = '$idSocio' )ORDER BY titulo ASC";
     } else if($crit ==  'disponibles'){
-        $clausula="SELECT * FROM libro WHERE alquilada=0 ORDER BY nombre ASC";
+        $clausula="SELECT * FROM libro WHERE id NOT IN (SELECT LIBRO_id FROM prestamo WHERE hasta IS NULL)";
     }
 
     $result=mysql_query($clausula);
@@ -59,11 +59,12 @@ if($logueado!=1) header("Location:index.php?login");
     <td>$row[ano]</td>
     <td>$row[formato]</td>
     <td>" ;
-
-        if($row[alquilada]==0)
+        $clausula="SELECT * FROM prestamo WHERE hasta IS NULL AND LIBRO_id = $row[id]";
+        $res=mysql_num_rows(mysql_query($clausula));
+        if($res == 0)
             echo "No";
         else
-            echo "Sí";
+            echo "Si";
 
         echo "</td>
   </tr>

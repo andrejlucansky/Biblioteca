@@ -120,16 +120,7 @@ if($logueado!=1) header("Location:index.php?login");
 	</td>
   </tr>
   <tr>
-    <td><span class="style15"><br>
-      <br>
-      <br>
-      <br>
-      <br>
-    </span></td>
-    <td><span class="style15"></span></td>
-  </tr>
-  <tr>
-    <td><span class="style14">-Alquiladas:</span></td>
+    <td><span class="style14">- Alquiladas:</span></td>
     <td>
       <?php
 	    $clausula="SELECT count(*) FROM prestamo WHERE USUARIO_id='$id' AND hasta IS NULL";
