@@ -34,7 +34,8 @@
       </div></td>
     </tr>
   </table>
-  <div align="center"><a href="index.php?contenido=altaNueva" style="color:#CC0000">Alta nuevo usuario</a><br>
+
+  <!--<div align="center"><a href="index.php?contenido=altaNueva" style="color:#CC0000">Alta nuevo usuario</a><br>
   <!-- STEP 2 As we are not logged yet we have to select Alta nuevo which leads to index.php?contenido=altaNueva -->
   </div>
   <div align="center" style="color:#CC0000; font-weight:bold; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:x-small "><?php if (isset($login)) echo "Por favor identif�quese para acceder a la aplicaci�n";?></div>

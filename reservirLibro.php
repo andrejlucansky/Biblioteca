@@ -1,8 +1,8 @@
 <?php
 session_start();
 $logueado = $_SESSION['logueado'];
-$idSocio = $_SESSION['idSocio'];
-$id = $_GET['id'];
+$id = $_SESSION['id'];
+$idLibro = $_GET['id'];
 if($logueado!=1) header("Location:index.php?login");
 
 ?>
@@ -14,7 +14,7 @@ if($logueado!=1) header("Location:index.php?login");
 include "vars.php";
 Conectar();
 
-$clausula = "SELECT * FROM peliculas WHERE idPelicula = $id";
+$clausula = "SELECT * FROM libro WHERE id = $idLibro";
 $result=mysql_query($clausula);
 $row=mysql_fetch_array($result);
 ?>
@@ -23,10 +23,10 @@ $row=mysql_fetch_array($result);
 <br>
 <table width="46%"  border="0" cellpadding="0">
   <tr>
-    <td colspan="2"><div align="center">&iquest;Est&aacute; seguro que desea alquilar la siguiente pel&iacute;cula? </div></td>
+    <td colspan="2"><div align="center">&iquest;Est&aacute; seguro que desea reservir el siguiente libro? </div></td>
     </tr>
   <tr>
-    <td colspan="2"> <div align="center" style="font-weight:bold"><?php echo $row[titulo];?>
+    <td colspan="2"> <div align="center" style="font-weight:bold"><?php echo $row[nombre];?>
       <br>
       <br>
       <br>
@@ -34,7 +34,7 @@ $row=mysql_fetch_array($result);
      </div></td>
     </tr>
   <tr>
-    <td> <div align="center"><?php echo "<a style=\"font-size:small;color:#CC0000\" href='procesarAlquiler.php?id=$row[idPelicula]'>Sí</a>";?>
+    <td> <div align="center"><?php echo "<a style=\"font-size:small;color:#CC0000\" href='procesarReservacion.php?id=$idLibro'>Si</a>";?>
      </div></td>
     <td> <div align="center"><?php echo "<a style=\"font-size:small;color:#CC0000\" href='index.php?contenido=principal'>No</a>";?>
      </div></td>

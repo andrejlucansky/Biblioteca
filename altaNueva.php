@@ -10,6 +10,12 @@
 -->
 .style9 {color: darkgray}
 </style>
+
+    <?php session_start();
+    $logueado = $_SESSION['logueado'];
+    $idSocio = $_SESSION['idSocio'];
+    if($logueado!=1) header("Location:index.php?login");
+    ?>
 </head>
 
 <body>

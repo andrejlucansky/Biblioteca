@@ -1,6 +1,6 @@
 <?php session_start();
 $logueado = $_SESSION['logueado'];
-$idSocio = $_SESSION['id'];
+$id = $_GET['id'];
 if($logueado!=1) header("Location:index.php?login");
 ?>
 <body>
@@ -17,35 +17,43 @@ if($logueado!=1) header("Location:index.php?login");
       Conectar();
 
 
-      $clausula = "SELECT id FROM usuario WHERE 1 ORDER BY id DESC LIMIT 1";
+      $clausula = "SELECT * FROM usuario WHERE id=$id;";
       $result=mysql_fetch_array(mysql_query($clausula));
-      $id = $result[0];
 
-      echo $id;
-      ?></span></td>
+      echo $result[id];
+      echo "<input type='hidden' name='id' id='id' value=$result[id] />";
+      ?>
+                </span>
+            </td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td><label></label></td>
+            <td><span class="style8">Apodo:</span></td>
+            <td>
+                <span class="style9">
+                    <?php
+                        echo $result[apodo];
+                    ?>
+                </span>
+            </td>
         </tr>
         <tr>
             <td><span class="style8">Nombre:</span></td>
             <td><label>
-                    <input type="text" name="nombre" id="nombre" />
+                    <input type="text" name="nombre" id="nombre" value='<?php echo $result[nombre];?>' />
                 </label></td>
         </tr>
         <tr>
             <td><span class="style8">Apellidos:</span></td>
-            <td><input type="text" name="apellidos" id="apellidos" /></td>
+            <td><input type="text" name="apellidos" id="apellidos" value='<?php echo $result[apellidos];?>'></td>
         </tr>
         <tr>
             <td><span class="style8">Email:</span></td>
-            <td><input type="text" name="email" id="email" /></td>
+            <td><input type="text" name="email" id="email" value='<?php echo $result[email];?>'></td>
         </tr>
         <tr>
             <td><span class="style8">Contrase&ntilde;a:</span></td>
             <td><label>
-                    <input name="password" type="password" id="password" value="" />
+                    <input name="password" type="password" id="password"/>
                 </label></td>
         </tr>
 
