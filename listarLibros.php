@@ -102,7 +102,10 @@ if ($logueado != 1) header("Location:index.php?login");
                 echo "<td>";
                 echo date_format(new DateTime($row[desde]), 'd.m.Y');
                 echo "</td><td>";
-                echo date_format(new DateTime($row[hasta]), 'd.m.Y');
+                if($row[hasta] != null)
+                    echo date_format(new DateTime($row[hasta]), 'd.m.Y');
+                else
+                    echo "no devuelto";
                 echo "</td>";
             }
 

@@ -31,7 +31,7 @@ if($logueado!=1) header("Location:index.php?login");
                 if($_SESSION['tipo_usuario'] == 'admin') {
                     ?>
                     <td width="20%"><span class="style2">Administrar libros:<br></span>
-                            -- <a href="index.php?contenido=administrarLibros">Anadir</a></br>
+                            -- <a href="index.php?contenido=anadirLibro">Anadir</a></br>
                             -- <a href="index.php?contenido=listarLibros&crit=borrar">Borrar</a></br>
                             -- <a href="index.php?contenido=listarLibros&crit=editar">Editar</a></br>
                     </td>

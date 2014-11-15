@@ -12,5 +12,5 @@ Conectar();
 $clausula="DELETE FROM libro WHERE id=$id";
 $result=mysql_query($clausula) or die("Error en la conexion a la base de datos: libro supresion");
 
-header("Location:index.php?contenido=principal");
+header("Location:index.php?contenido=listarLibros&crit=borrar");
 ?>

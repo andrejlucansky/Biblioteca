@@ -12,5 +12,5 @@ Conectar();
 $clausula="DELETE FROM usuario WHERE id=$id";
 $result=mysql_query($clausula) or die("Error en la conexion a la base de datos: supresion");
 
-header("Location:index.php?contenido=principal");
+header("Location:index.php?contenido=listarUsuarios&cond=delete");
 ?>

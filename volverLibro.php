@@ -1,7 +1,6 @@
 <?php
 session_start();
 $logueado = $_SESSION['logueado'];
-$id = $_SESSION['id'];
 $idLibro = $_GET['id'];
 if($logueado!=1) header("Location:index.php?login");
 
@@ -34,7 +33,7 @@ $row=mysql_fetch_array($result);
                 </div></td>
         </tr>
         <tr>
-            <td> <div align="center"><?php echo "<a style=\"font-size:small;color:#CC0000\" href='procesarRegreso.php?libro=$idLibro&id=$id'>Si</a>";?>
+            <td> <div align="center"><?php echo "<a style=\"font-size:small;color:#CC0000\" href='procesarRegreso.php?libro=$idLibro'>Si</a>";?>
                 </div></td>
             <td> <div align="center"><?php echo "<a style=\"font-size:small;color:#CC0000\" href='index.php?contenido=principal'>No</a>";?>
                 </div></td>

@@ -11,9 +11,10 @@ $apellidos = $_POST['apellidos'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $apodo = $_POST['apodo'];
+$tipo = $_POST['tipo'];
 
-$clausula = "UPDATE usuario SET nombre = '$nombre', apellidos = '$apellidos', email ='$email', password = '$password' WHERE id = '$id';";
+$clausula = "UPDATE usuario SET nombre = '$nombre', apellidos = '$apellidos', email ='$email', password = '$password', tipo='$tipo' WHERE id = '$id';";
 $result=mysql_query($clausula) or die("Error en la conexion a la base de datos: editar personales");
 
-header("Location:index.php?contenido=principal");
+header("Location:index.php?contenido=listarUsuarios&cond=edit");
 ?>

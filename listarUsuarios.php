@@ -35,6 +35,7 @@ if ($logueado != 1) header("Location:index.php?login");
         <td><strong>Apellidos</strong></td>
         <td><strong>Apodo</strong></td>
         <td><strong>E-mail</strong></td>
+        <td><strong>Tipo</strong></td>
 
     </tr>
     <?php
@@ -54,6 +55,7 @@ if ($logueado != 1) header("Location:index.php?login");
         echo "<td><span>$row[apellidos]</span></td>";
         echo "<td><span>$row[apodo]</span></td>";
         echo "<td><span>$row[email]</span></td>";
+        echo "<td><span>$row[tipo]</span></td>";
         echo "</tr>";
     }?>
 

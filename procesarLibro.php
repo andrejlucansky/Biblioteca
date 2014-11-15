@@ -13,5 +13,5 @@ $ano = $_POST['ano'];
 $clausula = "UPDATE libro SET nombre = '$nombre', autor = '$autor', ano ='$ano' WHERE id = '$id';";
 $result=mysql_query($clausula) or die("Error en la conexion a la base de datos: editar libro");
 
-header("Location:index.php?contenido=principal");
+header("Location:index.php?contenido=listarLibros&crit=editar");
 ?>

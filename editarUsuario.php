@@ -1,6 +1,8 @@
 <?php session_start();
 $logueado = $_SESSION['logueado'];
 $id = $_GET['id'];
+$tipo = $_SESSION['tipo_usuario'];
+
 if($logueado!=1) header("Location:index.php?login");
 ?>
 <body>
@@ -56,7 +58,21 @@ if($logueado!=1) header("Location:index.php?login");
                     <input name="password" type="password" id="password"/>
                 </label></td>
         </tr>
-
+        <?php
+            if($tipo == "admin") {
+                ?>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="radio" name="tipo"
+                               value="admin" <?php if ($result[tipo] == "admin") echo "checked"; ?>/>Admin
+                        <input type="radio" name="tipo"
+                               value="user" <?php if ($result[tipo] == "user") echo "checked"; ?>/>User
+                    </td>
+                </tr>
+            <?php
+            }
+        ?>
     </table>
     <div align="right"><br />
         <br />

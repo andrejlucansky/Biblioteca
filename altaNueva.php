@@ -13,7 +13,7 @@
 
     <?php session_start();
     $logueado = $_SESSION['logueado'];
-    $idSocio = $_SESSION['idSocio'];
+    $idSocio = $_SESSION['id'];
     if($logueado!=1) header("Location:index.php?login");
     ?>
 </head>
@@ -69,6 +69,13 @@ echo $id;
           <td><label>
                   <input name="password" type="password" id="password" value="" />
               </label></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>
+                <input type="radio" name="tipo" value="admin"/>Admin
+                <input type="radio" name="tipo" value="user" checked/>User
+          </td>
       </tr>
 
   </table>

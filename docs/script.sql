@@ -51,25 +51,25 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `biblioteca_db`.`Reservación`
+-- Table `biblioteca_db`.`Reservacion`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `biblioteca_db`.`Reservación` ;
+DROP TABLE IF EXISTS `biblioteca_db`.`Reservacion` ;
 
-CREATE TABLE IF NOT EXISTS `biblioteca_db`.`Reservación` (
+CREATE TABLE IF NOT EXISTS `biblioteca_db`.`Reservacion` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `order_number` INT NOT NULL,
   `LIBRO_id` INT NOT NULL,
   `USUARIO_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `idReservación_UNIQUE` (`id` ASC),
-  INDEX `fk_Reservación_LIBRO1_idx` (`LIBRO_id` ASC),
-  INDEX `fk_Reservación_USUARIO1_idx` (`USUARIO_id` ASC),
-  CONSTRAINT `fk_Reservación_LIBRO1`
+  UNIQUE INDEX `idReservacion_UNIQUE` (`id` ASC),
+  INDEX `fk_Reservacion_LIBRO1_idx` (`LIBRO_id` ASC),
+  INDEX `fk_Reservacion_USUARIO1_idx` (`USUARIO_id` ASC),
+  CONSTRAINT `fk_Reservacion_LIBRO1`
     FOREIGN KEY (`LIBRO_id`)
     REFERENCES `biblioteca_db`.`LIBRO` (`id`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Reservación_USUARIO1`
+  CONSTRAINT `fk_Reservacion_USUARIO1`
     FOREIGN KEY (`USUARIO_id`)
     REFERENCES `biblioteca_db`.`USUARIO` (`id`)
     ON DELETE CASCADE
